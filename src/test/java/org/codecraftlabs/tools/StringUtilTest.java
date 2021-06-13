@@ -34,4 +34,9 @@ public class StringUtilTest {
     public void containsSpaceReturnsFalseWithEmptyString() {
         assertThat(containsSpace(null), is(false));
     }
+
+    @Test
+    public void containsSpaceReturnsTrueWithSingleSpace() {
+        assertThat(containsSpace(" "), is(true));
+    }
 }

@@ -14,7 +14,11 @@ plugins {
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    mavenLocal()
 }
+
+group = 'org.codecraftlabs'
+version = '1.0.0'
 
 dependencies {
     // Use JUnit Jupiter API for testing.
