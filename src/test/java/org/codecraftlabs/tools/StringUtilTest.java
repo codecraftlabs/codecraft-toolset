@@ -49,4 +49,9 @@ public class StringUtilTest {
     public void containsSpaceIsTrueWithMiddleSpace() {
         assertThat(containsSpace("with more"), is(true));
     }
+
+    @Test
+    public void containsSpaceIsTrueWithEndSpace() {
+        assertThat(containsSpace("with "), is(true));
+    }
 }
