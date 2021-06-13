@@ -1,5 +1,6 @@
 package org.codecraftlabs.tools;
 
+import javax.annotation.Nonnull;
 import java.util.Optional;
 
 public class StringUtil {
@@ -7,7 +8,10 @@ public class StringUtil {
         return value != null && !value.isEmpty();
     }
 
-    public static boolean hasText(Optional<String> value) {
-        
+    public static boolean hasText(@Nonnull Optional<String> value) {
+        if (value.isEmpty()) {
+            return false;
+        }
+        return hasText(value.get());
     }
 }

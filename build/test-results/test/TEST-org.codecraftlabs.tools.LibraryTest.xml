@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.codecraftlabs.tools.LibraryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-13T16:47:43" hostname="SATURN" time="0.044">
+  <properties/>
+  <testcase name="testSomeLibraryMethod()" classname="org.codecraftlabs.tools.LibraryTest" time="0.044"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
