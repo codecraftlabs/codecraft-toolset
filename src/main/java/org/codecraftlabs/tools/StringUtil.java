@@ -8,4 +8,12 @@ public class StringUtil {
     public static boolean isEmptyOrNull(String value) {
         return !hasText(value);
     }
+
+    public static boolean containsSpace(String value) {
+        if (isEmptyOrNull(value)) {
+            return false;
+        }
+
+        return value.contains(" ");
+    }
 }
