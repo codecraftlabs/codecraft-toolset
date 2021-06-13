@@ -1,2 +1,0 @@
-org/codecraftlabs/tools/LibraryTest.java
- org.codecraftlabs.tools.LibraryTest
