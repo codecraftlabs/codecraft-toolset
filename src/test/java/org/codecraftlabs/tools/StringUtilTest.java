@@ -39,4 +39,14 @@ public class StringUtilTest {
     public void containsSpaceReturnsTrueWithSingleSpace() {
         assertThat(containsSpace(" "), is(true));
     }
+
+    @Test
+    public void containsSpaceIsTrueWithStartSpace() {
+        assertThat(containsSpace(" with"), is(true));
+    }
+
+    @Test
+    public void containsSpaceIsTrueWithMiddleSpace() {
+        assertThat(containsSpace("with "), is(true));
+    }
 }
