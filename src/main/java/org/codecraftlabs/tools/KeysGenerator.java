@@ -2,9 +2,9 @@ package org.codecraftlabs.tools;
 
 import javax.crypto.KeyGenerator;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 
 import static java.lang.System.getProperty;
+import static java.util.Base64.getEncoder;
 
 public class KeysGenerator {
     private static final String ACCESS_KEY_DEFAULT_SIZE = "120";
@@ -19,8 +19,8 @@ public class KeysGenerator {
         generator.init(getKeySize(APP_SECRET_KEY_SIZE_PROP, SECRET_KEY_DEFAULT_SIZE));
         byte[] secretKey = generator.generateKey().getEncoded();
 
-        String encodedAccessKey = Base64.getEncoder().encodeToString(accessKey);
-        String encodedSecretKey = Base64.getEncoder().encodeToString(secretKey);
+        String encodedAccessKey = getEncoder().encodeToString(accessKey);
+        String encodedSecretKey = getEncoder().encodeToString(secretKey);
 
         return new String[]{encodedAccessKey, encodedSecretKey};
     }
@@ -29,7 +29,7 @@ public class KeysGenerator {
         KeyGenerator generator = KeyGenerator.getInstance("HMACSHA1");
         generator.init(getKeySize(APP_ACCESS_KEY_SIZE_PROP, ACCESS_KEY_DEFAULT_SIZE));
         var key = generator.generateKey().getEncoded();
-        return Base64.getEncoder().encodeToString(key);
+        return getEncoder().encodeToString(key);
     }
 
     private int getKeySize(String keyName, String defaultValue) {
