@@ -16,4 +16,34 @@ public class StringUtil {
 
         return value.contains(" ");
     }
+
+    public static boolean containsOnlyNumbers(String value) {
+        if (isEmptyOrNull(value)) {
+            return false;
+        }
+
+        boolean foundNonDigit = false;
+        for (char aChar : value.toCharArray()) {
+            if (! Character.isDigit(aChar)) {
+                foundNonDigit = true;
+                break;
+            }
+        }
+        return !foundNonDigit;
+    }
+
+    public static boolean containsOnlyLetters(String value) {
+        if (isEmptyOrNull(value)) {
+            return false;
+        }
+
+        boolean foundDigit = false;
+        for (char aChar : value.toCharArray()) {
+            if (Character.isDigit(aChar)) {
+                foundDigit = true;
+                break;
+            }
+        }
+        return !foundDigit;
+    }
 }
