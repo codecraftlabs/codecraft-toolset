@@ -2,6 +2,7 @@ package org.codecraftlabs.tools;
 
 import org.junit.jupiter.api.Test;
 
+import static org.codecraftlabs.tools.StringUtil.containsOnlyNumbers;
 import static org.codecraftlabs.tools.StringUtil.containsSpace;
 import static org.codecraftlabs.tools.StringUtil.hasText;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -53,5 +54,25 @@ public class StringUtilTest {
     @Test
     public void containsSpaceIsTrueWithEndSpace() {
         assertThat(containsSpace("with "), is(true));
+    }
+
+    @Test
+    public void containsOnlyDigitsEmpty() {
+        assertThat(containsOnlyNumbers(""), is(false));
+    }
+
+    @Test
+    public void containsOnlyDigitsNull() {
+        assertThat(containsOnlyNumbers(null), is(false));
+    }
+
+    @Test
+    public void containsOnlyDigitsOk() {
+        assertThat(containsOnlyNumbers("1234"), is(true));
+    }
+
+    @Test
+    public void containsOnlyDigitsMixed() {
+        assertThat(containsOnlyNumbers("1234a"), is(false));
     }
 }
