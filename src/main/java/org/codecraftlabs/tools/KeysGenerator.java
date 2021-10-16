@@ -1,5 +1,6 @@
 package org.codecraftlabs.tools;
 
+import javax.annotation.Nonnull;
 import javax.crypto.KeyGenerator;
 import java.security.NoSuchAlgorithmException;
 
@@ -12,6 +13,7 @@ public class KeysGenerator {
     private static final String APP_ACCESS_KEY_SIZE_PROP = "app.accessKeySize";
     private static final String APP_SECRET_KEY_SIZE_PROP = "app.secretKeySize";
 
+    @Nonnull
     public String[] generateKeys() throws NoSuchAlgorithmException {
         KeyGenerator generator = KeyGenerator.getInstance("HMACSHA1");
         generator.init(getKeySize(APP_ACCESS_KEY_SIZE_PROP, ACCESS_KEY_DEFAULT_SIZE));
@@ -25,6 +27,7 @@ public class KeysGenerator {
         return new String[]{encodedAccessKey, encodedSecretKey};
     }
 
+    @Nonnull
     public String generatePassword() throws NoSuchAlgorithmException {
         KeyGenerator generator = KeyGenerator.getInstance("HMACSHA1");
         generator.init(getKeySize(APP_ACCESS_KEY_SIZE_PROP, ACCESS_KEY_DEFAULT_SIZE));
@@ -32,7 +35,7 @@ public class KeysGenerator {
         return getEncoder().encodeToString(key);
     }
 
-    private int getKeySize(String keyName, String defaultValue) {
+    private int getKeySize(@Nonnull String keyName, @Nonnull String defaultValue) {
         String keySize = getProperty(keyName, defaultValue);
         return Integer.parseInt(keySize);
     }
