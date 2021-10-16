@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.codecraftlabs.tools.StringUtil.containsOnlyNumbers;
 import static org.codecraftlabs.tools.StringUtil.containsSpace;
+import static org.codecraftlabs.tools.StringUtil.containsOnlyLetters;
 import static org.codecraftlabs.tools.StringUtil.hasText;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -74,5 +75,15 @@ public class StringUtilTest {
     @Test
     public void containsOnlyDigitsMixed() {
         assertThat(containsOnlyNumbers("1234a"), is(false));
+    }
+
+    @Test
+    public void containsOnlyLettersOk() {
+        assertThat(containsOnlyLetters("abcde"), is(true));
+    }
+
+    @Test
+    public void containsOnlyLettersNotOk() {
+        assertThat(containsOnlyLetters("1234a"), is(false));
     }
 }
