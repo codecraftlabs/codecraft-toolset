@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import static java.lang.System.getProperty;
 import static java.util.Base64.getEncoder;
 
-public class KeysGenerator {
+public final class KeysGenerator {
     private static final String ACCESS_KEY_DEFAULT_SIZE = "120";
     private static final String SECRET_KEY_DEFAULT_SIZE = "240";
     private static final String APP_ACCESS_KEY_SIZE_PROP = "app.accessKeySize";
