@@ -9,8 +9,6 @@ import java.util.Map;
 
 import static java.util.Collections.EMPTY_LIST;
 import static java.util.Collections.EMPTY_MAP;
-import static java.util.Collections.emptyList;
-import static java.util.Collections.emptyMap;
 import static org.codecraftlabs.tools.CollectionUtil.containsItems;
 import static org.codecraftlabs.tools.CollectionUtil.isNullOrEmpty;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -26,7 +24,7 @@ public class CollectionUtilTest {
 
     @Test
     public void isEmptyCollectionOk() {
-        assertThat(isNullOrEmpty(emptyList()), is(true));
+        assertThat(isNullOrEmpty(EMPTY_LIST), is(true));
     }
 
     @Test
