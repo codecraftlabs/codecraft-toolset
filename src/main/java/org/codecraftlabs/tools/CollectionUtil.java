@@ -18,7 +18,7 @@ public class CollectionUtil {
         return map == null || map.isEmpty();
     }
 
-    public boolean containsItems(@CheckForNull Map<?, ?> map) {
+    public static boolean containsItems(@CheckForNull Map<?, ?> map) {
         return !isNullOrEmpty(map);
     }
 }
