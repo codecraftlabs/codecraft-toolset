@@ -1,5 +1,7 @@
 package org.codecraftlabs.tools;
 
+import static java.lang.Character.isDigit;
+
 public final class StringUtil {
     public static boolean hasText(String value) {
         return value != null && !value.isEmpty();
@@ -13,7 +15,6 @@ public final class StringUtil {
         if (isEmptyOrNull(value)) {
             return false;
         }
-
         return value.contains(" ");
     }
 
@@ -22,9 +23,9 @@ public final class StringUtil {
             return false;
         }
 
-        boolean foundNonDigit = false;
+        var foundNonDigit = false;
         for (char aChar : value.toCharArray()) {
-            if (! Character.isDigit(aChar)) {
+            if (!isDigit(aChar)) {
                 foundNonDigit = true;
                 break;
             }
@@ -37,9 +38,9 @@ public final class StringUtil {
             return false;
         }
 
-        boolean foundDigit = false;
+        var foundDigit = false;
         for (char aChar : value.toCharArray()) {
-            if (Character.isDigit(aChar)) {
+            if (isDigit(aChar)) {
                 foundDigit = true;
                 break;
             }
