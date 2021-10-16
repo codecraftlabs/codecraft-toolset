@@ -5,7 +5,7 @@ import javax.annotation.Nonnull;
 import java.util.Collection;
 import java.util.Map;
 
-public class CollectionUtil {
+public final class CollectionUtil {
     public static boolean isNullOrEmpty(@CheckForNull Collection<?> collection) {
         return collection == null || collection.isEmpty();
     }

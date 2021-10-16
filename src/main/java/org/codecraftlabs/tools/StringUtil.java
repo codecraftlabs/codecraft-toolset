@@ -1,6 +1,6 @@
 package org.codecraftlabs.tools;
 
-public class StringUtil {
+public final class StringUtil {
     public static boolean hasText(String value) {
         return value != null && !value.isEmpty();
     }
