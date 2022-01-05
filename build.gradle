@@ -19,7 +19,7 @@ repositories {
     mavenLocal()
 }
 
-version = '1.0.0'
+version = '1.0.1'
 
 java {
     toolchain {
@@ -52,7 +52,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'org.codecraftlabs.tools'
             artifactId = 'codecraft-tools'
-            version = '1.0.0'
+            version = '1.0.1'
 
             from components.java
         }
