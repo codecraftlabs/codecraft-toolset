@@ -1,24 +1,26 @@
 package org.codecraftlabs.tools;
 
+import javax.annotation.CheckForNull;
+
 import static java.lang.Character.isDigit;
 
 public final class StringUtil {
-    public static boolean hasText(String value) {
+    public static boolean hasText(@CheckForNull String value) {
         return value != null && !value.isEmpty();
     }
 
-    public static boolean isEmptyOrNull(String value) {
+    public static boolean isEmptyOrNull(@CheckForNull String value) {
         return !hasText(value);
     }
 
-    public static boolean containsSpace(String value) {
+    public static boolean containsSpace(@CheckForNull String value) {
         if (isEmptyOrNull(value)) {
             return false;
         }
         return value.contains(" ");
     }
 
-    public static boolean containsOnlyNumbers(String value) {
+    public static boolean containsOnlyNumbers(@CheckForNull String value) {
         if (isEmptyOrNull(value)) {
             return false;
         }
@@ -33,7 +35,7 @@ public final class StringUtil {
         return !foundNonDigit;
     }
 
-    public static boolean containsOnlyLetters(String value) {
+    public static boolean containsOnlyLetters(@CheckForNull String value) {
         if (isEmptyOrNull(value)) {
             return false;
         }
