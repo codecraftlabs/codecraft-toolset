@@ -5,6 +5,8 @@ import javax.annotation.CheckForNull;
 import static java.lang.Character.isDigit;
 
 public final class StringUtil {
+    private static final String SPACE = " ";
+
     public static boolean hasText(@CheckForNull String value) {
         return value != null && !value.isEmpty();
     }
@@ -17,7 +19,7 @@ public final class StringUtil {
         if (isEmptyOrNull(value)) {
             return false;
         }
-        return value.contains(" ");
+        return value.contains(SPACE);
     }
 
     public static boolean containsOnlyNumbers(@CheckForNull String value) {
