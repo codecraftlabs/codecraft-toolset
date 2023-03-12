@@ -1,6 +1,7 @@
 package org.codecraftlabs.tools;
 
 import javax.annotation.Nonnull;
+import javax.crypto.KeyGenerator;
 import java.security.NoSuchAlgorithmException;
 
 import static java.lang.System.getProperty;
@@ -16,30 +17,30 @@ public final class KeysGenerator {
 
     @Nonnull
     public String[] generateKeys() throws NoSuchAlgorithmException {
-        var generator = getInstance(ALGORITHM_NAME);
+        KeyGenerator generator = getInstance(ALGORITHM_NAME);
 
         generator.init(getKeySize(APP_ACCESS_KEY_SIZE_PROP, ACCESS_KEY_DEFAULT_SIZE));
-        var accessKey = generator.generateKey().getEncoded();
+        byte[] accessKey = generator.generateKey().getEncoded();
 
         generator.init(getKeySize(APP_SECRET_KEY_SIZE_PROP, SECRET_KEY_DEFAULT_SIZE));
-        var secretKey = generator.generateKey().getEncoded();
+        byte[] secretKey = generator.generateKey().getEncoded();
 
-        var encodedAccessKey = getEncoder().encodeToString(accessKey);
-        var encodedSecretKey = getEncoder().encodeToString(secretKey);
+        String encodedAccessKey = getEncoder().encodeToString(accessKey);
+        String encodedSecretKey = getEncoder().encodeToString(secretKey);
 
         return new String[]{encodedAccessKey, encodedSecretKey};
     }
 
     @Nonnull
     public String generatePassword() throws NoSuchAlgorithmException {
-        var generator = getInstance(ALGORITHM_NAME);
+        KeyGenerator generator = getInstance(ALGORITHM_NAME);
         generator.init(getKeySize(APP_ACCESS_KEY_SIZE_PROP, ACCESS_KEY_DEFAULT_SIZE));
-        var key = generator.generateKey().getEncoded();
+        byte[] key = generator.generateKey().getEncoded();
         return getEncoder().encodeToString(key);
     }
 
     private int getKeySize(@Nonnull String keyName, @Nonnull String defaultValue) {
-        var keySize = getProperty(keyName, defaultValue);
+        String keySize = getProperty(keyName, defaultValue);
         return Integer.parseInt(keySize);
     }
 }

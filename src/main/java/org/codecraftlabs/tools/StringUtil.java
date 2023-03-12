@@ -25,7 +25,7 @@ public final class StringUtil {
             return false;
         }
 
-        var foundNonDigit = false;
+        boolean foundNonDigit = false;
         for (char aChar : value.toCharArray()) {
             if (!isDigit(aChar)) {
                 foundNonDigit = true;
@@ -40,7 +40,7 @@ public final class StringUtil {
             return false;
         }
 
-        var foundDigit = false;
+        boolean foundDigit = false;
         for (char aChar : value.toCharArray()) {
             if (isDigit(aChar)) {
                 foundDigit = true;
